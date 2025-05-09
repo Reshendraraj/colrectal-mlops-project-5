@@ -85,6 +85,8 @@ class DataProcessing:
             joblib.dump(X_test , os.path.join(self.output_path , 'X_test.pkl'))
             joblib.dump(y_train , os.path.join(self.output_path , 'y_train.pkl'))
             joblib.dump(y_test , os.path.join(self.output_path , 'y_test.pkl'))
+            joblib.dump(self.scaler, os.path.join(self.output_path, 'scaler.pkl'))
+            
             logger.info("Alk the Saving Part is Done...")
         
         except Exception as e:
