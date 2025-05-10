@@ -18,12 +18,12 @@ def home():
 def predict():
     try:
         healthcare_cost = float(request.form["healthcare_costs"])
-        tumor_size = float(request.form(["tumor_size"]))
-        treatment_type = int(request.form(["treatment_type"]))
-        diabetes = int(request.form(["diabetes"]))
-        mortality_rate=int(request.form(["mortality_rate"]))
+        tumor_size = float(request.form["tumor_size"])
+        treatment_type = int(request.form["treatment_type"])
+        diabetes = int(request.form["diabetes"])
+        mortality_rate=int(request.form["mortality_rate"])
 
-        input = np.array(healthcare_cost,tumor_size,treatment_type,diabetes,mortality_rate)
+        input = np.array([[healthcare_cost,tumor_size,treatment_type,diabetes,mortality_rate]])
         scaled_input = scaler.transform(input)
         prediction = model.predict(scaled_input)[0]
 
